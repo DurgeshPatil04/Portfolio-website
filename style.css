@@ -6,6 +6,7 @@
 
 html {
     scroll-behavior: smooth;
+    zoom: 0.80;
 }
 
 body {
