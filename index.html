@@ -108,9 +108,9 @@
     </section>
 
     <section id="research" class="section">
-        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1500">Research & Publications</h2>
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">Research & Publications</h2>
         
-        <div class="resume-item" data-aos="fade-up" data-aos-duration="1500">
+        <div class="resume-item" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">
             <span class="date">2025</span>
             <h3>Peer-Reviewed Journal Article</h3>
             <h4>International Journal of Environmental Science</h4>
@@ -123,8 +123,8 @@
     </section>
 
     <section id="skills" class="section">
-        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1500">Technical Skills</h2>
-        <div class="resume-item" data-aos="fade-up" data-aos-duration="1500">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">Technical Skills</h2>
+        <div class="resume-item" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">
             <p><strong>Programming Languages:</strong> Python, C, SQL (MySQL)</p>
             <p><strong>Machine Learning & AI:</strong> Scikit-learn, Pandas, NumPy, Supervised/Unsupervised Learning, Predictive Modeling, Feature Engineering, Generative AI (Vertex AI, Gemini APIs, Imagen, Multimodal RAG)</p>
             <p><strong>Data Analysis & Visualization:</strong> Power BI, MS Excel, Data Wrangling, Statistical Analysis</p>
@@ -134,8 +134,8 @@
     </section>
 
     <section id="education" class="section">
-        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1500">Education & Certifications</h2>
-        <div class="resume-item" data-aos="fade-up" data-aos-duration="1500">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">Education & Certifications</h2>
+        <div class="resume-item" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">
             <span class="date">Aug 2023 – May 2027 (Expected)</span>
             <h3>B.Tech in Data Science - CGPA: 8.12/10</h3>
             <h4>IPS Academy – Institute of Engineering and Science (Indore, India)</h4>
@@ -144,7 +144,7 @@
             </ul>
         </div>
         
-        <div class="resume-item" data-aos="fade-up" data-aos-duration="1500">
+        <div class="resume-item" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">
             <h3>Certifications</h3>
             <ul>
                 <li>AWS Academy Graduate – Cloud Operations – AWS Academy (40 course hours) – Issued Apr 2026</li>
@@ -157,8 +157,8 @@
     </section>
 
     <section id="contact" class="section">
-        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1500">Contact & Links</h2>
-        <div class="resume-item" data-aos="fade-up" data-aos-duration="1500">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">Contact & Links</h2>
+        <div class="resume-item" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50">
             <p><strong>Location:</strong> Indore, India</p>
             <p><strong>Phone:</strong> +91 76208 82870</p>
             <p><strong>Email:</strong> <a href="mailto:durgesh2004patil@gmail.com" class="contact-link">durgesh2004patil@gmail.com</a></p>
@@ -170,7 +170,19 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+
+        // Fonts, the 3D spline viewer, and images can all change page layout
+        // after AOS's initial offset calculation. Recalculate once everything
+        // has actually finished loading so lower sections trigger correctly.
+        window.addEventListener('load', () => {
+            AOS.refreshHard();
+        });
     </script>
     <script>
         const canvas = document.getElementById('starCanvas');
