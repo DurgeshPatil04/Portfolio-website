@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: black;
+    color: lightgray;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: clip; /* clip instead of hidden to allow position: sticky to work on children */
+}
+
+
+.layer-blur {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 500px 100px rgba(138, 43, 226, 0.4);
+    rotate: 30deg;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.05rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    z-index: 999;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+.btn-signin {
+    background-color: lightgray;
+    color: black;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    z-index: 999;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-signin:hover {
+    background-color: gray;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(90vh - 6rem);
+    position: relative;
+}
+
+.content {
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.tag-box {
+    position: relative;
+    width: 18rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #333, #8a2be2, #333);
+    background-size: 200%;
+    animation: gradient-animation 2.5s linear infinite;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    margin-bottom: 2rem;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+.tag {
+    position: absolute;
+    inset: 3px;
+    background: black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.tag:hover {
+    color: purple;
+}
+
+.content h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 1rem 0 2rem 0;
+    line-height: 1.2;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: #aaaaaa;
+}
+
+.description {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    max-width: 35rem;
+    color: gray;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn-get-started {
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: lightgray;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-get-started:hover {
+    background-color: #111;
+}
+
+.robot-3d {
+    position: absolute;
+    top: 0%;
+    right: 5%;
+    width: 600px;
+    height: 700px;
+    z-index: 100;
+}
+
+.keyword-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+
+.floating-text {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    z-index: -1;
+    white-space: nowrap;
+    animation: floatAnim 6s ease-in-out infinite;
+    text-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+@keyframes floatAnim {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-1 { top: 15%; left: -10%; animation-delay: 0s; }
+.float-2 { top: 35%; right: -15%; animation-delay: 1.5s; font-size: 1.2rem; }
+.float-3 { bottom: 25%; left: -15%; animation-delay: 3s; font-size: 1.2rem; }
+.float-4 { top: 5%; right: 10%; animation-delay: 4.5s; font-size: 3rem; color: #8a2be2; text-shadow: 0 0 20px rgba(138, 43, 226, 0.8); }
+.float-5 { bottom: 15%; right: -5%; animation-delay: 2s; }
+
+.kw-1 { top: 12%;  left: 42%;  font-size: 1.5rem; animation-delay: 0s; }
+.kw-2 { top: 28%;  left: 60%;  font-size: 1.3rem; animation-delay: 1.2s; }
+.kw-3 { top: 46%;  left: 38%;  font-size: 1.4rem; animation-delay: 2.4s; }
+.kw-4 { top: 52%;  left: 49%;  font-size: 1.2rem; animation-delay: 0.8s; }
+.kw-5 { top: 20%;  left: 52%;  font-size: 1.3rem; animation-delay: 3.2s; }
+.kw-6 { top: 76%;  left: 44%;  font-size: 1.4rem; animation-delay: 1.6s; }
+
+spline-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+/* Resume Sections Styles */
+.section {
+    padding: 5rem 10%;
+    z-index: 10;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: white;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.lower-pages-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+#starCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+}
+
+
+
+
+.resume-item {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #00ffff, #0055ff);
+    opacity: 0.7;
+}
+
+.resume-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.resume-item h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item h4 {
+    font-size: 1.2rem;
+    background: linear-gradient(to right, #00ffff, #0055ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.resume-item .date {
+    float: right;
+    color: lightgray;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
+
+.resume-item p, .resume-item ul {
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+.resume-item ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.resume-item li {
+    margin-bottom: 0.5rem;
+}
+
+.contact-link {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 1300px) {
+    header {
+        padding: 1.5rem 2rem;
+    }
+    .content {
+        margin-top: 5%;
+    }
+    .robot-3d {
+        transform: translateY(-50%) scale(0.8);
+        right: -5%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .robot-3d {
+        transform: translateY(-50%) scale(0.6);
+        right: -15%;
+    }
+    .content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    nav {
+        margin-left: 0;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    main {
+        padding-top: 2rem;
+    }
+    .content {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .content h1 {
+        font-size: 2.5rem;
+    }
+    .robot-3d {
+        position: relative;
+        transform: scale(0.7);
+        right: auto;
+        top: auto;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+    }
+    .resume-item .date {
+        float: none;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+}
