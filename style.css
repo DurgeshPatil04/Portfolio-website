@@ -6,7 +6,7 @@
 
 html {
     scroll-behavior: smooth;
-    zoom: 0.75;
+    font-size: 75%; /* mimics the old zoom:0.75 visual scale via rem, without breaking scroll/layout math */
 }
 
 body {
@@ -96,7 +96,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(90vh - 6rem);
+    min-height: calc(100vh - 6rem);
     position: relative;
 }
 
@@ -238,9 +238,9 @@ main {
 
 .kw-1 { top: 12%;  left: 42%;  font-size: 1.5rem; animation-delay: 0s; }
 .kw-2 { top: 28%;  left: 60%;  font-size: 1.3rem; animation-delay: 1.2s; }
-.kw-3 { top: 46%;  left: 38%;  font-size: 1.4rem; animation-delay: 2.4s; }
+.kw-3 { top: 39%;  left: 38%;  font-size: 1.4rem; animation-delay: 2.4s; }
 .kw-4 { top: 52%;  left: 49%;  font-size: 1.2rem; animation-delay: 0.8s; }
-.kw-5 { top: 20%;  left: 52%;  font-size: 1.3rem; animation-delay: 3.2s; }
+.kw-5 { top: 28%;  left: 52%;  font-size: 1.3rem; animation-delay: 3.2s; }
 .kw-6 { top: 76%;  left: 44%;  font-size: 1.4rem; animation-delay: 1.6s; }
 
 spline-viewer {
@@ -250,11 +250,14 @@ spline-viewer {
 
 /* Resume Sections Styles */
 .section {
-    padding: 5rem 10%;
-    z-index: 10;
     position: relative;
+    z-index: 2;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 6rem 10%;
+    min-height: auto;
+    display: block;
 }
 
 .section-title {
@@ -269,7 +272,10 @@ spline-viewer {
 
 .lower-pages-wrapper {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    width: 100%;
+    background: #000;
+    overflow: visible;
 }
 
 #starCanvas {
@@ -278,9 +284,13 @@ spline-viewer {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
-    display: block;
+}
+
+.lower-pages-wrapper .section {
+    position: relative;
+    z-index: 2;
 }
 
 
