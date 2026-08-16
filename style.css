@@ -231,7 +231,7 @@ main {
 }
 
 .float-1 { top: 15%; left: -10%; animation-delay: 0s; }
-.float-2 { top: 35%; right: -13%; animation-delay: 1.5s; font-size: 1.2rem; }
+.float-2 { top: 35%; right: -11%; animation-delay: 1.5s; font-size: 1.2rem; }
 .float-3 { bottom: 25%; left: -15%; animation-delay: 3s; font-size: 1.2rem; }
 .float-4 { top: 5%; right: 10%; animation-delay: 4.5s; font-size: 3rem; color: #8a2be2; text-shadow: 0 0 20px rgba(138, 43, 226, 0.8); }
 .float-5 { bottom: 15%; right: -5%; animation-delay: 2s; }
